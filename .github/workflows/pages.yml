@@ -1,0 +1,49 @@
+name: Pages
+
+# Builds the shadcn registry JSON from registry.json and publishes it with
+# GitHub Pages, so `shadcn add https://darkmatter.github.io/ui/r/<item>.json`
+# works from any project.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build registry
+        run: |
+          mkdir -p _site
+          npx --yes shadcn@4 build registry.json --output _site/r
+          cp site/index.html _site/index.html
+          cp registry.json _site/registry.json
+          touch _site/.nojekyll
+          ls _site/r | wc -l
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

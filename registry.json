@@ -1,0 +1,1389 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "particle",
+  "homepage": "https://darkmatter.github.io/ui",
+  "items": [
+    {
+      "name": "dm-theme",
+      "type": "registry:theme",
+      "title": "Dark Matter Labs Theme",
+      "description": "Matched to dm.sh: cool blue-tinted (240°) near-black dark theme, dark-by-default. Destructive red is the only product hue. Rounded corners, ring-1 hairline elevation. Inter + Monaspace Neon + Montserrat.",
+      "cssVars": {
+        "light": {
+          "background": "hsl(0 0% 100%)",
+          "foreground": "hsl(240 25% 4%)",
+          "card": "hsl(0 0% 100%)",
+          "card-foreground": "hsl(240 25% 4%)",
+          "popover": "hsl(0 0% 100%)",
+          "popover-foreground": "hsl(240 25% 4%)",
+          "primary": "hsl(240 5.9% 10%)",
+          "primary-foreground": "hsl(0 0% 98%)",
+          "secondary": "hsl(240 4.8% 95.9%)",
+          "secondary-foreground": "hsl(240 5.9% 10%)",
+          "muted": "hsl(240 4.8% 95.9%)",
+          "muted-foreground": "hsl(240 3.8% 46.1%)",
+          "accent": "hsl(240 4.8% 95.9%)",
+          "accent-foreground": "hsl(240 5.9% 10%)",
+          "destructive": "hsl(0 72.2% 50.6%)",
+          "destructive-foreground": "hsl(0 0% 98%)",
+          "border": "hsl(240 5.9% 90%)",
+          "input": "hsl(240 5.9% 90%)",
+          "ring": "hsl(240 5.9% 10%)",
+          "chart-1": "oklch(70.7% 0.165 254.624)",
+          "chart-2": "oklch(76.5% 0.177 163.223)",
+          "chart-3": "oklch(78.5% 0.115 274.713)",
+          "chart-4": "oklch(62.3% 0.214 259.815)",
+          "chart-5": "oklch(69.6% 0.17 162.48)",
+          "sidebar": "hsl(0 0% 98%)",
+          "sidebar-foreground": "hsl(240 5.3% 26.1%)",
+          "sidebar-primary": "hsl(240 5.9% 10%)",
+          "sidebar-primary-foreground": "hsl(0 0% 98%)",
+          "sidebar-accent": "hsl(240 4.8% 95.9%)",
+          "sidebar-accent-foreground": "hsl(240 5.9% 10%)",
+          "sidebar-border": "hsl(220 13% 91%)",
+          "sidebar-ring": "hsl(240 5.9% 10%)",
+          "radius": "0.5rem"
+        },
+        "dark": {
+          "background": "hsl(240 25% 2%)",
+          "foreground": "hsl(0 0% 100%)",
+          "card": "hsl(240 10% 3.9%)",
+          "card-foreground": "hsl(0 0% 98%)",
+          "popover": "hsl(240 10% 3.9%)",
+          "popover-foreground": "hsl(0 0% 98%)",
+          "primary": "hsl(240 5.9% 10%)",
+          "primary-foreground": "hsl(0 0% 98%)",
+          "secondary": "hsl(240 3.7% 15.9%)",
+          "secondary-foreground": "hsl(0 0% 98%)",
+          "muted": "hsl(240 3.7% 15.9%)",
+          "muted-foreground": "hsl(240 5% 64.9%)",
+          "accent": "hsl(240 3.7% 15.9%)",
+          "accent-foreground": "hsl(0 0% 98%)",
+          "destructive": "hsl(0 62.8% 30.6%)",
+          "destructive-foreground": "hsl(0 0% 98%)",
+          "border": "hsl(240 3.7% 15.9%)",
+          "input": "hsl(240 3.7% 15.9%)",
+          "ring": "hsl(240 4.9% 83.9%)",
+          "chart-1": "oklch(70.7% 0.165 254.624)",
+          "chart-2": "oklch(76.5% 0.177 163.223)",
+          "chart-3": "oklch(78.5% 0.115 274.713)",
+          "chart-4": "oklch(62.3% 0.214 259.815)",
+          "chart-5": "oklch(69.6% 0.17 162.48)",
+          "sidebar": "hsl(0 0% 1%)",
+          "sidebar-foreground": "hsl(240 5% 64.9%)",
+          "sidebar-primary": "hsl(0 0% 98%)",
+          "sidebar-primary-foreground": "hsl(0 0% 9%)",
+          "sidebar-accent": "hsl(240 3.7% 15.9%)",
+          "sidebar-accent-foreground": "hsl(0 0% 98%)",
+          "sidebar-border": "hsl(240 3.7% 7.9%)",
+          "sidebar-ring": "hsl(240 4.9% 83.9%)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/legacy/src/app/globals.css",
+          "type": "registry:style",
+          "target": "app/globals.css"
+        },
+        {
+          "path": "registry/legacy/src/app/wallet.css",
+          "type": "registry:style",
+          "target": "app/wallet.css"
+        },
+        {
+          "path": "registry/legacy/postcss.config.mjs",
+          "type": "registry:file",
+          "target": "postcss.config.mjs"
+        }
+      ]
+    },
+    {
+      "name": "typography",
+      "type": "registry:item",
+      "title": "Typography",
+      "description": "Inter optical-sizing presets (opsz + letter-spacing per size × weight, including light 300/350), the semantic type scale (text-display … text-caption) as Tailwind v4 utilities, and per-family tracking/leading presets for Geist, Geist Mono, Montserrat, Lora, Source Code Pro, and Monaspace Neon.",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "docs": "Import both stylesheets in your globals.css: @import \"../styles/typography.css\"; @import \"../styles/font-presets.css\". Load each family you use and expose it as --face-<id> (e.g. Inter({ subsets: [\"latin\"], axes: [\"opsz\"], variable: \"--face-inter\" })); the opsz axis is required for the Inter presets. Then point role aliases at families: --font-sans: var(--font-inter); --font-mono: var(--font-geist-mono); --font-heading: var(--font-montserrat); --font-serif: var(--font-lora).",
+      "files": [
+        {
+          "path": "styles/typography.css",
+          "type": "registry:file",
+          "target": "styles/typography.css"
+        },
+        {
+          "path": "styles/font-presets.css",
+          "type": "registry:file",
+          "target": "styles/font-presets.css"
+        }
+      ]
+    },
+    {
+      "name": "blank",
+      "type": "registry:block",
+      "title": "Blank",
+      "description": "A blank application with all brand components and code",
+      "registryDependencies": [
+        "brand-header",
+        "brand-sidebar",
+        "product-grid",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard",
+      "type": "registry:block",
+      "title": "Dashboard",
+      "description": "A dashboard application with your brand themed components",
+      "registryDependencies": [
+        "sonner",
+        "brand-header",
+        "brand-sidebar",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/layouts/shell-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/dashboard-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "store",
+      "type": "registry:block",
+      "title": "Store",
+      "description": "A store application with your brand themed components",
+      "registryDependencies": [
+        "product-grid",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/store-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "brand-header",
+      "type": "registry:component",
+      "title": "Brand Header",
+      "description": "A styled, simple, reusable header",
+      "registryDependencies": [
+        "button",
+        "input",
+        "avatar",
+        "sidebar",
+        "sonner",
+        "logo",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/brand-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/layouts/shell-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "brand-sidebar",
+      "type": "registry:component",
+      "title": "Brand Sidebar",
+      "description": "A styled, simple, reusable sidebar",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "sidebar",
+        "sonner",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/brand-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/layouts/shell-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "type": "registry:component",
+      "title": "Login",
+      "description": "Username & password login section with customer quote.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "dm-theme",
+        "logo"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/login.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo",
+      "type": "registry:component",
+      "title": "Brand Logo",
+      "description": "A styled, simple, reusable logo",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/logo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero",
+      "type": "registry:component",
+      "title": "Hero",
+      "description": "Attention-grabbing section for the top of your landing pages.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/hero.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "promo",
+      "type": "registry:component",
+      "title": "Promo",
+      "description": "Attention-grabbing section to display the current promotional deal.",
+      "registryDependencies": [
+        "button",
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/promo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "registry/legacy/src/app/demo/[name]/blocks/blank-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product-grid",
+      "type": "registry:component",
+      "title": "Product Grid",
+      "description": "Product grid displaying all products with API to fetch data",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/product-grid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/legacy/src/lib/products.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "Powerful table and datagrids built using TanStack Table.",
+      "files": [
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "Displays the path to the current resource using a hierarchy of links.",
+      "files": [
+        {
+          "path": "registry/legacy/src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Expandable content sections using Radix UI",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Alert Dialog component.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Displays a callout for user attention.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Aspect Ratio component.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "User profile images with fallback using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Status indicators and labels with variants",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Displays the path to the current resource using a hierarchy of links.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Interactive button with variants and sizes",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A date field component that allows users to enter and edit date.",
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Container component with Header, Title, Description, Action, Content, Footer",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Carousel component.",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Beautiful charts. Built using Recharts. Copy and paste into your apps.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Form checkbox input using Radix UI",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Collapsible component.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Command component.",
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Context Menu component.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialogs using Radix UI",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Drawer component.",
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Contextual menus using Radix UI",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "Form component.",
+      "dependencies": [
+        "radix-ui",
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Hover Card component.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input Otp",
+      "description": "Input Otp component.",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input field",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Form labels using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu-bar",
+      "type": "registry:ui",
+      "title": "Menu Bar",
+      "description": "A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "Navigation Menu component.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Pagination component.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Popover component.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Progress bar indicator using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radio Group component.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Resizable component.",
+      "dependencies": [
+        "lucide-react",
+        "react-resizable-panels"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Custom scrollable container using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Dropdown selection using Radix UI",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Visual dividers using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Sheet component.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Sidebar component.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/legacy/src/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholders",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "An input where the user selects a value from within a given range.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "An opinionated toast component for React.",
+      "dependencies": [
+        "next-themes",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switches using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A responsive table component.",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabbed navigation using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Textarea component.",
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Toggle component.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Contextual tooltips using Radix UI",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "dm-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/legacy/src/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "floating-dock-demo",
+      "type": "registry:block",
+      "title": "Floating Dock Demo",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/floating-dock-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hover-border-gradient-demo",
+      "type": "registry:block",
+      "title": "Hover Border Gradient Demo",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/hover-border-gradient-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "lamp-demo",
+      "type": "registry:block",
+      "title": "Lamp Demo",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/lamp-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "login-with-socials",
+      "type": "registry:block",
+      "title": "Login With Socials",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/login-with-socials.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "registration-form",
+      "type": "registry:block",
+      "title": "Registration Form",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/registration-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-demo",
+      "type": "registry:block",
+      "title": "Sparkles Demo",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/sparkles-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-demo",
+      "type": "registry:block",
+      "title": "Spotlight Demo",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/spotlight-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "trading-dashboard",
+      "type": "registry:block",
+      "title": "Trading Dashboard",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/trading-dashboard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "wishlist1",
+      "type": "registry:block",
+      "title": "Wishlist1",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/wishlist1.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "wizard-form",
+      "type": "registry:block",
+      "title": "Wizard Form",
+      "description": "Particle registry block.",
+      "files": [
+        {
+          "path": "components/blocks/wizard-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

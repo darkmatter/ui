@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>darkmatter ui — shadcn registry</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; background: hsl(240 25% 2%); color: #fff; font: 16px/1.5 Inter, system-ui, sans-serif; font-feature-settings: "cv11", "ss01"; }
+    main { max-width: 44rem; margin: 0 auto; padding: 4rem 1.5rem; }
+    h1 { font-size: 2.5rem; font-weight: 350; letter-spacing: -0.45px; margin: 0 0 .5rem; }
+    p { color: hsl(240 5% 64.9%); }
+    pre { background: hsl(240 10% 3.9%); border: 1px solid hsl(240 3.7% 15.9%); border-radius: .5rem; padding: 1rem; overflow-x: auto; font: 13px/1.6 "Geist Mono", ui-monospace, monospace; }
+    a { color: #fff; }
+    small { color: hsl(240 5% 64.9%); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>darkmatter ui</h1>
+    <p>The Dark Matter Labs design system as a shadcn registry: theme, typography presets, primitives, blocks.</p>
+    <pre>npx shadcn@latest add https://darkmatter.github.io/ui/r/typography.json</pre>
+    <p>Or register the namespace once:</p>
+    <pre>{
+  "registries": {
+    "@darkmatter": "https://darkmatter.github.io/ui/r/{name}.json"
+  }
+}</pre>
+    <pre>npx shadcn@latest add @darkmatter/dm-theme @darkmatter/typography @darkmatter/button</pre>
+    <p><a href="r/registry.json">Registry index</a> · <a href="https://github.com/darkmatter/ui">Source</a></p>
+    <small>Synced from an internal repository by Copybara. MIT.</small>
+  </main>
+</body>
+</html>

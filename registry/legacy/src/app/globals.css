@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./wallet.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   Dark Matter Labs — brand tokens (matched to dm.sh)
+   Cool, blue-tinted (240°) near-black dark theme, dark-by-default. Destructive
+   red is the only product hue. Rounded corners. Inter (sans), Monaspace Neon
+   (mono), Montserrat (display/secondary). Values mirror dm.sh's globals.css.
+   ========================================================================== */
+
+:root {
+  /* Light counterpart (dm.sh ships dark-only; this keeps the theme toggle sane). */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 25% 4%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 25% 4%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 25% 4%);
+  --primary: hsl(240 5.9% 10%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(240 4.8% 95.9%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+  --muted: hsl(240 4.8% 95.9%);
+  --muted-foreground: hsl(240 3.8% 46.1%);
+  --accent: hsl(240 4.8% 95.9%);
+  --accent-foreground: hsl(240 5.9% 10%);
+  --destructive: hsl(0 72.2% 50.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(240 5.9% 90%);
+  --input: hsl(240 5.9% 90%);
+  --ring: hsl(240 5.9% 10%);
+  --chart-1: oklch(70.7% 0.165 254.624);
+  --chart-2: oklch(76.5% 0.177 163.223);
+  --chart-3: oklch(78.5% 0.115 274.713);
+  --chart-4: oklch(62.3% 0.214 259.815);
+  --chart-5: oklch(69.6% 0.17 162.48);
+  --radius: 0.5rem;
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(240 5.9% 10%);
+}
+
+.dark {
+  --background: hsl(240 25% 2%);
+  --foreground: hsl(0 0% 100%);
+  --card: hsl(240 10% 3.9%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(240 10% 3.9%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(240 5.9% 10%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(240 3.7% 15.9%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --muted: hsl(240 3.7% 15.9%);
+  --muted-foreground: hsl(240 5% 64.9%);
+  --accent: hsl(240 3.7% 15.9%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(240 3.7% 15.9%);
+  --input: hsl(240 3.7% 15.9%);
+  --ring: hsl(240 4.9% 83.9%);
+  --chart-1: oklch(70.7% 0.165 254.624);
+  --chart-2: oklch(76.5% 0.177 163.223);
+  --chart-3: oklch(78.5% 0.115 274.713);
+  --chart-4: oklch(62.3% 0.214 259.815);
+  --chart-5: oklch(69.6% 0.17 162.48);
+  --sidebar: hsl(0 0% 1%);
+  --sidebar-foreground: hsl(240 5% 64.9%);
+  --sidebar-primary: hsl(0 0% 98%);
+  --sidebar-primary-foreground: hsl(0 0% 9%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(0 0% 98%);
+  --sidebar-border: hsl(240 3.7% 7.9%);
+  --sidebar-ring: hsl(240 4.9% 83.9%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans), "Inter Variable", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-sans-secondary: var(--font-sans-secondary), "Montserrat",
+    "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Monaspace Neon", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply font-sans bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ==========================================================================
+   Native — desktop wallet + web3 browser design tokens (dark-only).
+   Scoped to `.native` so the wallet blocks render on their warm-neutral
+   OKLCH palette while the default theme blocks (dashboard, store, …) keep
+   the Nature theme untouched. shadcn semantic tokens are remapped here, plus
+   a few extra named utilities (surface ladder, fg ladder, status accents).
+   ========================================================================== */
+
+:root {
+  /* Extra named tokens consumed only by wallet blocks; safe to expose
+     globally so the generated `bg-surface-1`, `text-up`, … never resolve
+     to an empty value when previewed in isolation. */
+  --surface-1: oklch(0.04 0 0);
+  --line-strong: oklch(1 0 0 / 25%);
+  --field: oklch(0.12 0 0);
+  --fg-2: oklch(0.9 0 0);
+  --fg-3: oklch(0.7 0 0);
+  --fg-4: oklch(0.5 0 0);
+  --up: oklch(0.85 0.15 190);
+  --up-strong: oklch(0.75 0.15 190);
+  --down: oklch(0.65 0.2 30);
+  --warn: oklch(0.8 0.15 60);
+  --info: oklch(0.65 0.15 258);
+  --info-strong: oklch(0.55 0.2 262);
+  --violet: oklch(0.72 0.14 305);
+}
+
+.native {
+  --background: oklch(0.20 0.01 255);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.26 0.01 255);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.26 0.01 255);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.12 0.04 270);
+  --secondary: oklch(0.29 0.01 255);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.29 0.01 255);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.33 0.01 255);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.65 0.2 30);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.85 0.15 190);
+  --radius: 0.25rem;
+
+  /* surface ladder / status accents (in-context values) */
+  --surface-1: oklch(0.24 0.01 255);
+  --line-strong: oklch(1 0 0 / 12%);
+  --field: oklch(0.33 0.01 255);
+  --fg-2: oklch(0.9 0 0);
+  --fg-3: oklch(0.7 0 0);
+  --fg-4: oklch(0.5 0 0);
+  --up: oklch(0.85 0.15 190);
+  --up-strong: oklch(0.75 0.15 190);
+  --down: oklch(0.65 0.2 30);
+  --warn: oklch(0.8 0.15 60);
+  --info: oklch(0.65 0.15 258);
+  --info-strong: oklch(0.55 0.2 262);
+  --violet: oklch(0.72 0.14 305);
+
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-surface-1: var(--surface-1);
+  --color-line-strong: var(--line-strong);
+  --color-field: var(--field);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-fg-4: var(--fg-4);
+  --color-up: var(--up);
+  --color-up-strong: var(--up-strong);
+  --color-down: var(--down);
+  --color-warn: var(--warn);
+  --color-info: var(--info);
+  --color-info-strong: var(--info-strong);
+  --color-violet: var(--violet);
+}

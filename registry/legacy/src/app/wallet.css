@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Wallet — "native" token overlay
+   A warm-neutral layer on top of the DM design system for the web3
+   wallet + browser surface. Slightly lifted dark grays, tiny corner radius,
+   accent hues used sparingly. Shipped as the `wallet-theme` registry item.
+   ========================================================================== */
+
+:root {
+  /* Tuned warm-neutrals (still very dark, but not pure gray) */
+  --n-bg: oklch(0.20 0.01 255);
+  --n-bg-1: oklch(0.24 0.01 255);
+  --n-bg-2: oklch(0.26 0.01 255);
+  --n-bg-3: oklch(0.29 0.01 255);
+  --n-bg-4: oklch(0.33 0.01 255);
+  --n-hl: oklch(1 0 0 / 7%); /* hairline */
+  --n-hl-2: oklch(1 0 0 / 12%); /* stronger hairline */
+
+  --n-fg: oklch(0.985 0 0);
+  --n-fg-2: oklch(0.88 0 0);
+  --n-fg-3: oklch(0.74 0 0);
+  --n-mute: oklch(0.6 0 0);
+  --n-mute-2: oklch(0.48 0 0);
+
+  /* Accents — used sparingly */
+  --n-blue: oklch(0.85 0.15 190);
+  --n-blue-2: oklch(0.75 0.15 190);
+  --n-blue-bg: oklch(0.85 0.15 190 / 20%);
+  --n-green: oklch(0.85 0.15 190); /* Mapped to Cyan */
+  --n-green-2: oklch(0.75 0.15 190);
+  --n-green-bg: oklch(0.85 0.15 190 / 20%);
+  --n-amber: oklch(0.8 0.15 60);
+  --n-red: oklch(0.65 0.2 30); /* Mapped to Orange */
+  --n-violet: oklch(0.72 0.14 305);
+
+  --n-radius: 3px;
+  --n-radius-card: 4px;
+}
+
+/* Expose the wallet palette to Tailwind utilities (bg-n-bg-2, text-n-fg, …) */
+@theme inline {
+  --color-n-bg: var(--n-bg);
+  --color-n-bg-1: var(--n-bg-1);
+  --color-n-bg-2: var(--n-bg-2);
+  --color-n-bg-3: var(--n-bg-3);
+  --color-n-bg-4: var(--n-bg-4);
+  --color-n-hl: var(--n-hl);
+  --color-n-hl-2: var(--n-hl-2);
+  --color-n-fg: var(--n-fg);
+  --color-n-fg-2: var(--n-fg-2);
+  --color-n-fg-3: var(--n-fg-3);
+  --color-n-mute: var(--n-mute);
+  --color-n-mute-2: var(--n-mute-2);
+  --color-n-blue: var(--n-blue);
+  --color-n-blue-2: var(--n-blue-2);
+  --color-n-green: var(--n-green);
+  --color-n-green-2: var(--n-green-2);
+  --color-n-amber: var(--n-amber);
+  --color-n-red: var(--n-red);
+  --color-n-violet: var(--n-violet);
+  --radius-n: var(--n-radius);
+  --radius-n-card: var(--n-radius-card);
+}
+
+/* Numerics — toggled by .nf-mono on a parent */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+.nf-mono .num,
+.nf-mono [data-num] {
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reusable button */
+.n-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  border: 1px solid var(--n-hl-2);
+  background: var(--n-bg-3);
+  color: var(--n-fg);
+  border-radius: var(--n-radius);
+  cursor: pointer;
+  transition: background 100ms, border-color 100ms, transform 80ms;
+  white-space: nowrap;
+}
+.n-btn:hover {
+  background: oklch(0.3 0.005 60);
+}
+.n-btn:active {
+  transform: translateY(0.5px);
+}
+.n-btn.is-primary {
+  background: var(--n-fg);
+  color: var(--n-bg);
+  border-color: var(--n-fg);
+}
+.n-btn.is-primary:hover {
+  background: oklch(0.92 0 0);
+}
+.n-btn.is-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--n-fg-2);
+}
+.n-btn.is-ghost:hover {
+  background: var(--n-bg-3);
+  color: var(--n-fg);
+}
+.n-btn.is-blue {
+  background: var(--n-blue-2);
+  border-color: var(--n-blue-2);
+  color: white;
+}
+.n-btn.is-blue:hover {
+  background: oklch(0.5 0.2 262);
+}
+.n-btn.is-sm {
+  height: 22px;
+  padding: 0 8px;
+  font-size: 13px;
+}
+.n-btn.is-lg {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+.n-btn.is-block {
+  width: 100%;
+}
+
+/* Pill */
+.n-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 20px;
+  padding: 0 7px;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--n-fg-3);
+  background: var(--n-bg-3);
+  border: 1px solid var(--n-hl);
+  border-radius: 10px;
+}
+.n-pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--n-mute);
+}
+.n-pill.is-live .dot {
+  background: var(--n-green);
+  box-shadow: 0 0 0 2px oklch(0.65 0.15 152 / 25%);
+}
+.n-pill.is-warn .dot {
+  background: var(--n-amber);
+}
+.n-pill.is-blue .dot {
+  background: var(--n-blue);
+}
+
+/* Card */
+.n-card {
+  background: var(--n-bg-2);
+  border: 1px solid var(--n-hl);
+  border-radius: var(--n-radius-card);
+}
+.n-card.lit {
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 4%);
+}
+
+/* Eyebrow / mono label */
+.eyebrow {
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-size: 14px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--n-mute);
+}
+
+/* Divider */
+.hairline {
+  background: var(--n-hl);
+  height: 1px;
+}
+
+/* Tag */
+.n-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 18px;
+  padding: 0 6px;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  background: var(--n-bg-3);
+  border: 1px solid var(--n-hl);
+  color: var(--n-fg-3);
+  border-radius: 4px;
+}
+.n-tag.is-blue {
+  background: var(--n-blue-bg);
+  border-color: oklch(0.5 0.18 262 / 50%);
+  color: oklch(0.88 0.06 250);
+}
+.n-tag.is-green {
+  background: var(--n-green-bg);
+  border-color: oklch(0.55 0.16 150 / 50%);
+  color: oklch(0.9 0.1 145);
+}
+
+/* SVG icons inherit currentColor; standard 14×14 stroke 1.6 */
+.icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+.icon.sm {
+  width: 12px;
+  height: 12px;
+}
+.icon.lg {
+  width: 18px;
+  height: 18px;
+}
+.icon.xl {
+  width: 22px;
+  height: 22px;
+}
